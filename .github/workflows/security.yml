@@ -13,18 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: docker/setup-buildx-action@v2
-      id: buildx
-      with:
-        install: true
-
     - name: Build
       id: build-action-image
       run: |
         git_hash=$(git rev-parse --short "$GITHUB_SHA")
         git_branch=${GITHUB_REF#refs/heads/}
         echo ::set-output name=generated-image::$git_branch:$git_hash
-        docker build . -t $git_branch:$git_hash
+        docker build -t $git_branch:$git_hash .
 
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
