@@ -1,0 +1,16 @@
+name: Serverless Action
+author: SumUp
+description: Allow serverless cli commands
+branding:
+  icon: terminal
+  color: white
+inputs:
+  args:
+    description: Arguments to be passed to serverless command
+    required: true
+    default: 'deploy'
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.args }}
