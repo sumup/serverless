@@ -1,13 +1,13 @@
 name: Security Check
 
 on:
-  push:
+  pull_request:
     branches:
       - '*'
 
 jobs:
   security-check:
-    name: Set Up
+    name: Security Check
     runs-on: ubuntu-latest
 
     steps:
