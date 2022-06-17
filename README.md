@@ -11,7 +11,7 @@ steps:
     - uses: actions/checkout@v3
 
     - name: Deploy
-      uses: sumup-bank/serverless-deployment-action@v1
+      uses: sumup-bank/serverless-action@v1
       with:
         args: deploy
 ```
@@ -23,7 +23,7 @@ steps:
     - uses: actions/checkout@v3
 
     - name: Deploy
-      uses: sumup-bank/serverless-deployment-action@v1
+      uses: sumup-bank/serverless-action@v1
       with:
         args: deploy --stage prod
 ```
