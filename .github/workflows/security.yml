@@ -18,7 +18,7 @@ jobs:
       run: |
         git_hash=$(git rev-parse --short "$GITHUB_SHA")
         git_branch=${GITHUB_REF#refs/heads/}
-        echo ::set-output name=generated-image::$git_branch:$git_hash
+        echo "generated-image=$git_branch:$git_hash" >> $GITHUB_OUTPUT
         docker build -t $git_branch:$git_hash .
 
     - name: Run Trivy vulnerability scanner
